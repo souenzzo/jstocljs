@@ -41,6 +41,7 @@ npx shadow-cljs watch npm
 ```
 
 - Em outro terminal, inicie o `yarn` como de costume
+
 *TODO*: atualizar as configurações do `webpack` para quando houver
 mudanças em `shadow-cljs` ele acionar o "hot-reload"
 ```bash
@@ -48,6 +49,7 @@ yarn start
 ```
 
 - crie o arquivo `src/jstocljs/core.cljs`
+
 DICA: O javascript "gerado" por esse `jstocljs.core` está em
 `node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legivel
 
@@ -62,3 +64,5 @@ npx shadow-cljs compile npm && yarn build
 - explicar melhor configurações de build avançadas
 - conectar um repl?!
 - usar o root component como CLJS
+- Adicionar devcards para componentes JS e CLJS ?!
+
