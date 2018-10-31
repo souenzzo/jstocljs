@@ -47,7 +47,10 @@ mudanças em `shadow-cljs` ele acionar o "hot-reload"
 yarn start
 ```
 
-- crie o arquivo `jstocljs.core`
+- crie o arquivo `src/jstocljs/core.cljs`
+DICA: O javascript "gerado" por esse `jstocljs.core` está em
+`node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legivel
+
 
 - Na hora do build de produção:
 ```bash
@@ -57,3 +60,5 @@ npx shadow-cljs compile npm && yarn build
 # TODO
 - é possivel importar JS a partir do cljs
 - explicar melhor configurações de build avançadas
+- conectar um repl?!
+- usar o root component como CLJS
