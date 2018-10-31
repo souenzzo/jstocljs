@@ -1,4 +1,5 @@
-{:dependencies [[reagent/reagent "0.8.1"]]
+{:dependencies [[org.clojure/clojurescript "1.10.339"]
+                [reagent/reagent "0.8.1"]]
 
  :source-paths ["src"]
 
