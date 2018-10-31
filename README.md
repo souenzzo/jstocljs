@@ -1,6 +1,13 @@
 # Usando cljs em um projeto JS
 
-- verifique suas dependencias
+Passo a passo de como integrar clojureScript dentro do ecossistema de um projeto JS.
+
+#### Instalando dependencias
+Necessário uma versão atualizada do java([Você pode baixar por aqui](https://www.java.com/pt_BR/download/)) e do npx, que é um pacote para executar binarios da [npm]([Aqui](https://www.npmjs.com/get-npm)).
+Para instalar o npmx pela npm rode:
+`npm install -g npx`
+
+Verifique se as dependências foram corretamente instaladas:
 ```bash
 $ java -version
 openjdk version "1.8.0_192"
@@ -10,7 +17,7 @@ $ npx --version
 6.4.1
 ```
 
-- crie o arquivo de configuração `shadow-cljs.edn`
+#### Crie o arquivo de configuração `shadow-cljs.edn`
 
 ```clojure
 {:dependencies [[org.clojure/clojurescript "1.10.339"]
@@ -34,35 +41,36 @@ $ npx --version
 
 ```
 
-- Coloque o compilador cljs no modo watch
+#### Coloque o compilador cljs no modo watch
 
 ```bash
 npx shadow-cljs watch npm
 ```
 
-- Em outro terminal, inicie o `yarn` como de costume
+- Em outro terminal, inicie o `yarn` ou `npm i` como de costume
 
 *TODO*: atualizar as configurações do `webpack` para quando houver
-mudanças em `shadow-cljs` ele acionar o "hot-reload"
+
+Qual mudança em `shadow-cljs` o webpack aciona o "hot-reload"
 ```bash
 yarn start
 ```
 
-- crie o arquivo `src/jstocljs/core.cljs`
+- Crie o arquivo `src/jstocljs/core.cljs`
 
 DICA: O javascript "gerado" por esse `jstocljs.core` está em
-`node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legivel
+`node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legível
 
-
-- Na hora do build de produção:
+#### Como buildar para produção
 ```bash
 npx shadow-cljs compile npm && yarn build
 ```
 
 # TODO
-- é possivel importar JS a partir do cljs
-- explicar melhor configurações de build avançadas
-- conectar um repl?!
-- usar o root component como CLJS
-- Adicionar devcards para componentes JS e CLJS ?!
+- [ ] é possivel importar JS a partir do cljs
+- [ ] explicar melhor configurações de build avançadas
+- [ ] conectar um repl?!
+- [ ] usar o root component como CLJS
+- [ ] Documentação em DOCZ e um github pages
+- [ ] Adicionar devcards para componentes JS e CLJS ?!
 
