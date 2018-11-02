@@ -17,7 +17,10 @@ $ npx --version
 6.4.1
 ```
 
-#### Crie o arquivo de configuração `shadow-cljs.edn`
+#### Arquivos de configuração
+
+- `shadow-cljs.edn`: é nele que estará as dependencias/configuração da parte
+clojure do seu projeto
 
 ```clojure
 {:dependencies [[org.clojure/clojurescript "1.10.339"]
@@ -31,7 +34,8 @@ $ npx --version
                       :modules    {:main {:entries [jstocljs.core]}}}}}
 ```
 
-- (OPCIONAL) Crie um `project.clj` para sua IDE não surtar
+- **\[OPCIONAL\]** Crie um `project.clj`. Algumas IDE's/editores de texto precisam
+dele para funcionar
 
 ```clojure
 (defproject jstocljs "0.1.0-SNAPSHOT"
@@ -41,25 +45,48 @@ $ npx --version
 
 ```
 
-#### Coloque o compilador cljs no modo watch
+#### Primeiro clojurescript
 
+- Crie o arquivo `src/jstocljs/core.cljs`
+
+```clojure
+(ns jstocljs.core)
+
+(defn ^:export MyFirstFn
+  [x]
+  (* x x))
+;; veja o src/jstocljs/core.cljs no git para um exemplo completo
+```
+
+- Coloque o compilador do clojurescript para rodar no modo interativo
+
+(ao editar, ele será compilado automagicamente)
 ```bash
 npx shadow-cljs watch npm
 ```
 
-- Em outro terminal, inicie o `yarn` ou `npm i` como de costume
+DICA: O javascript "gerado" por esse `jstocljs.core` está em
+`node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legível
 
-*TODO*: atualizar as configurações do `webpack` para quando houver
+- Em outro terminal, inicie o projeto como de costume usando `yarn` ou `npm`
 
-Qual mudança em `shadow-cljs` o webpack aciona o "hot-reload"
+**TODO**: atualizar as configurações do `webpack` para quando houver
+
 ```bash
+yarn install
+
 yarn start
 ```
 
-- Crie o arquivo `src/jstocljs/core.cljs`
+- Importe o clojurescript em qualquer lugar no JS
 
-DICA: O javascript "gerado" por esse `jstocljs.core` está em
-`node_modules/shadow-cljs/jstocljs.core.js` e é um arquivo JS legível
+o clojurescript estará "dentro" do shadow-cljs. Os imports podem ser feitos
+via ES6 ou `require`.
+
+```javascript
+import {MyFirstFn} from 'shadow-cljs/jstocljs.core';
+```
+
 
 #### Como buildar para produção
 ```bash
