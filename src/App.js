@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import * as jstocljs from 'jstocljs/jstocljs.core.js';
 import './App.css';
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          1 + 2 = {jstocljs.add(1, 2)}
         </p>
         <a
           className="App-link"

@@ -1,0 +1,4 @@
+{:deps   true
+ :builds {:app {:target     :npm-module
+                :output-dir "node_modules/jstocljs"
+                :modules    {:main {:entries [jstocljs.core]}}}}}
